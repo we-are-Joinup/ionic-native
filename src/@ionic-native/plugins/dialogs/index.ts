@@ -66,16 +66,18 @@ export class Dialogs extends IonicNativePlugin {
    * @param {string} message Dialog message.
    * @param {string} [title] Dialog title. (Optional, defaults to Confirm)
    * @param {Array<string>} [buttonLabels] Array of strings specifying button labels. (Optional, defaults to [OK,Cancel])
+   * @param {boolean} cancelable Flag to allow set if is dismissible outside touch
    * @returns {Promise<number>} Returns a promise that resolves the button index that was clicked, or 0 if the user has dismissed the dialog by clicking outside the dialog box. Note that the index use one-based indexing.
    */
   @Cordova({
     successIndex: 1,
-    errorIndex: 4
+    errorIndex: 5
   })
   confirm(
     message: string,
     title?: string,
-    buttonLabels?: string[]
+    buttonLabels?: string[],
+    cancelable?: boolean
   ): Promise<number> {
     return;
   }
@@ -86,6 +88,7 @@ export class Dialogs extends IonicNativePlugin {
    * @param {string} [title] Dialog title. (Optional, defaults to Prompt)
    * @param {Array<string>} [buttonLabels]  Array of strings specifying button labels. (Optional, defaults to ["OK","Cancel"])
    * @param {string} [defaultText] Default text box input value.  (Optional, Default: empty string)
+   * @param {boolean} cancelable Flag to allow set if is dismissible outside touch
    * @returns {Promise<DialogsPromptCallback>} Returns a promise that resolves an object with the button index clicked and the text entered
    */
   @Cordova({
@@ -96,7 +99,8 @@ export class Dialogs extends IonicNativePlugin {
     message?: string,
     title?: string,
     buttonLabels?: string[],
-    defaultText?: string
+    defaultText?: string,
+    cancelable?: boolean
   ): Promise<DialogsPromptCallback> {
     return;
   }
